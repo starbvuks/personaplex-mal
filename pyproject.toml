@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personaplex-mal"
+version = "0.1.0"
+description = "Experimental test-time memory branches for the PersonaPlex/Moshi transformer."
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = ["torch>=2.6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+py-modules = ["mal", "memory_policy", "kv_read"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
