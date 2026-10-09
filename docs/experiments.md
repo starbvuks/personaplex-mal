@@ -6,7 +6,7 @@ The neural memory is a two-layer SiLU MLP. Queries and keys are normalized; valu
 
 Those choices adapt the papers rather than reproduce their exact architectures, tasks or reported results. The original Titans-as-a-Layer speech paper concerns conversational emotion recognition, not PersonaPlex recall.
 
-Tests check analytic gradients against autograd, chunked and whole-sequence equivalence, zero-gate identity, frozen-state immutability, checkpoint integrity and finite backward gradients for zero-norm frames. These are mechanism checks.
+Tests check analytic gradients against autograd, chunked and whole-sequence equivalence, zero-gate identity, frozen-state immutability, checkpoint integrity, finite backward gradients for zero-norm frames, and full-state update bounds. The cap checks cover forgetting, carried momentum and every prefix/history write, including disabled and nonbinding caps. These are mechanism checks.
 
 A useful next evaluation must compare matched history, swapped history, empty history and gates-off controls on held-out queries. Measure whether the correct answer follows the supplied history; a changed output, nonzero state or lower training loss is insufficient. A previous local experiment exhibited a history-independent bias. Removing the start-frame write removed that bias but did not establish correct recall.
 
